@@ -3,6 +3,7 @@ package main
 import (
 	"log"
 	"net/http"
+	"strings"
 	"text/template"
 
 	_ "embed"
@@ -12,8 +13,7 @@ import (
 var index []byte
 
 const (
-	TARGET_MODULE_HEADER string = "X-Target-Module"
-	LISTEN_PORT          string = ":80"
+	LISTEN_PORT string = ":80"
 )
 
 func main() {
@@ -23,7 +23,7 @@ func main() {
 			log.Fatal(err)
 		}
 
-		page.Execute(w, r.Header.Get(TARGET_MODULE_HEADER))
+		page.Execute(w, strings.TrimLeft(r.URL.Path, "/"))
 	})
 
 	log.Fatal(http.ListenAndServe(LISTEN_PORT, nil))
