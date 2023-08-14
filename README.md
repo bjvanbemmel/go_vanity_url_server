@@ -1,6 +1,14 @@
 # Go Proxy
 A minimal implementation of a Go proxy.
 
+## Introduction:
+Want to use your own domain name to share your Go modules like this?
+```console
+go get bjvanbemmel.nl/cosmos
+go install bjvanbemmel.nl/kyoto
+```
+This repo will allow you to get your own Go proxy up and running within seconds.
+
 ## Installation:
 The recommended way to run this proxy is by cloning the repository and starting the Docker container.
 
